@@ -4,8 +4,9 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "create-polyanets": "tsc && node dist/runners/createXShapedPolyanet.js",
-    "delete-polyanet": "tsc && node dist/runners/deletePolyanet.js"
+    "create-polyanets": "tsc && node dist/script-runners/createXShapedPolyanet.js",
+    "delete-polyanet": "tsc && node dist/script-runners/deletePolyanet.js",
+    "build-megaverse": "tsc && node dist/script-runners/buildMegaverse.js"
   },
   "devDependencies": {
     "@types/minimist": "^1.2.5",

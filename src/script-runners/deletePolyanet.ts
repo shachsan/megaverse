@@ -6,9 +6,6 @@ dotenv.config();
 
 const args = minimist(process.argv.slice(2));
 const { row, column } = args;
-console.log('args', args)
-console.log('row', row)
-console.log('column', column)
 
 const candidateId = process.env.CANDIDATE_ID || '';
 
