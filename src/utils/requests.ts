@@ -14,14 +14,12 @@ export const axiosWithRetry = (config: AxiosConfig) => {
             return await axios(config);
         } catch (error: any) {
             const { maxRetryCount = DEFAULT_MAX_RETRY_COUNT, initialDelay = INITIAL_DELAY } = config;
-            ;
             console.log('axios error', error.toJSON ? error.toJSON() : error)
             // Determine if we should retry
-            const shouldRetry = retryAttempt <= maxRetryCount &&
+            const shouldRetry = retryAttempt < maxRetryCount &&
                 (error.response?.status === 429 ||
                     error.code === 'ECONNRESET' ||
                     error.message.includes('socket hang up'));
-            // console.log('config', config)
             if (shouldRetry) {
                 retryAttempt++;
                 const backoffDelay = initialDelay * Math.pow(2, retryAttempt) + Math.random() * 100;
@@ -33,5 +31,6 @@ export const axiosWithRetry = (config: AxiosConfig) => {
             }
         }
     }
+
     return attemptRequest();
 }

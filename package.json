@@ -4,15 +4,19 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "create-polyanet": "tsc && node dist/api/MegaverseAPI.js"
+    "create-polyanets": "tsc && node dist/runners/createXShapedPolyanet.js",
+    "delete-polyanet": "tsc && node dist/runners/deletePolyanet.js"
   },
   "devDependencies": {
+    "@types/minimist": "^1.2.5",
     "@types/node": "^20.11.25",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.2"
   },
   "dependencies": {
     "axios": "^1.6.7",
+    "dotenv": "^16.4.5",
+    "minimist": "^1.2.8",
     "p-limit": "^5.0.0"
   }
 }
