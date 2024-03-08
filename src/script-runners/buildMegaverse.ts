@@ -6,4 +6,6 @@ dotenv.config();
 const candidateId = process.env.CANDIDATE_ID || '';
 
 const megaverse = new MegaverseAPI(candidateId);
-megaverse.buildMegaverse().then(() => console.log('Megaverse built successfully'));
+megaverse.buildMegaverse()
+.then(() => console.log('Megaverse built successfully'))
+.catch((error) => (console.log('Megaverse creation failed', error)));
